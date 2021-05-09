@@ -1,0 +1,22 @@
+.book-summary {
+  display: flex;
+
+  .book-image-container {
+    width: 80px;
+    height: 45px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .book-titles-container {
+    margin-left: 12px;
+
+    .book-title {
+      display: block;
+      font-weight: bold;
+    }
+  }
+}

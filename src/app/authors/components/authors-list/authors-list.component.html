@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between mt-2">
+    <h3>Authors</h3>
+    <div>
+      <a routerLink="../create" class="btn btn-primary">Create</a>
+    </div>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Born at</th>
+        <th>Created</th>
+        <th>Last updated</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let author of authors">
+        <td>{{author.id}}</td>
+        <td>
+          <div class="author-summary">
+            <div class="author-image-container">
+              <img [src]="author.photo" [alt]="author.name">
+            </div>
+            <div class="author-names-container">
+              <a class="author-name" [routerLink]="['/', 'authors', 'details', author.id]">{{author.name}}</a>
+              <small class="author-surname">{{author.surname}}</small>
+            </div>
+          </div>
+        </td>
+        <td>{{author.bornAt | date}}</td>
+        <td>{{author.created | date}}</td>
+        <td>{{author.lastUpdated | date}}</td>
+        <td>{{author.nationality}}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-primary"
+             [routerLink]="['/', 'authors', 'edit', author.id]">Edit</a>
+          <button (click)="openDeleteDialog(deleteDialogTemplate, author)"
+                  class="btn btn-sm btn-outline-danger ml-2">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #deleteDialogTemplate>
+    <div class="modal-header">
+      <h4 class="modal-name pull-left">Delete Author?</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete author "{{selectedAuthor.name}}"?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
+      <button type="button" class="btn btn-danger" (click)="deleteAuthor()">Delete</button>
+    </div>
+  </ng-template>
+  

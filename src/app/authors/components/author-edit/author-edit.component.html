@@ -1,0 +1,58 @@
+<form *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="name">Name <span class="text-danger">*</span></label>
+    <input formControlName="name"
+           type="text"
+           class="form-control"
+           id="name"
+           placeholder="Enter name">
+    <lq-error-label [control]="formGroup.get('name')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="surname">Surname <span class="text-danger">*</span></label>
+    <input formControlName="surname"
+           type="text"
+           class="form-control"
+           id="surname"
+           placeholder="Enter surname">
+    <lq-error-label [control]="formGroup.get('surname')"></lq-error-label>
+  </div>
+  <div class="form-group">
+    <label for="nationality">Nationality <span class="text-danger">*</span></label>
+    <input formControlName="nationality"
+           type="text"
+           class="form-control"
+           id="nationality"
+           placeholder="Enter nationality">
+    <lq-error-label [control]="formGroup.get('nationality')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="photo">Photo URL</label>
+    <input formControlName="photo"
+           type="text"
+           class="form-control"
+           id="photo"
+           placeholder="Enter cover URL">
+    <lq-error-label [control]="formGroup.get('photo')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="born-at">Born at <span class="text-danger">*</span></label>
+    <input formControlName="bornAt"
+           type="text"
+           bsDatepicker
+           [bsConfig]="{ dateInputFormat: 'MMM D, YYYY', isAnimated: true }"
+           class="form-control"
+           id="born-at"
+           placeholder="Enter born date">
+    <lq-error-label [control]="formGroup.get('bornAt')"></lq-error-label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

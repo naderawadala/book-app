@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-between mt-2">
+  <h3>Books</h3>
+  <div>
+    <a routerLink="../create" class="btn btn-primary">Create</a>
+  </div>
+</div>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Publish at</th>
+      <th>Created</th>
+      <th>Last updated</th>
+      <th>Category</th>
+      <th>Language</th>
+      <th>Pages</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{book.id}}</td>
+      <td>
+        <div class="book-summary">
+          <div class="book-image-container">
+            <img [src]="book.coverImgURL" [alt]="book.title">
+          </div>
+          <div class="book-titles-container">
+            <a class="book-title" [routerLink]="['/', 'books', 'details', book.id]">{{book.title}}</a>
+            <small class="book-subtitle">{{book.subtitle}}</small>
+          </div>
+        </div>
+      </td>
+      <td>{{book.publishAt | date}}</td>
+      <td>{{book.created | date}}</td>
+      <td>{{book.lastUpdated | date}}</td>
+      <td>{{book.category}}</td>
+      <td>{{book.language}}</td>
+      <td>{{book.pages}}</td>
+      <td>
+        <span *ngIf="book.isCertificateIncluded; else certificateNotIncluded">Yes</span>
+        <ng-template #certificateNotIncluded>
+          <span>-</span>
+        </ng-template>
+      </td>
+      <td>
+        <a class="btn btn-sm btn-outline-primary"
+           [routerLink]="['/', 'books', 'edit', book.id]">Edit</a>
+        <button (click)="openDeleteDialog(deleteDialogTemplate, book)"
+                class="btn btn-sm btn-outline-danger ml-2">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #deleteDialogTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Delete Book?</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete book "{{selectedBook.title}}"?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="deleteBook()">Delete</button>
+  </div>
+</ng-template>

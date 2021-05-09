@@ -1,0 +1,85 @@
+<form *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="title">Title <span class="text-danger">*</span></label>
+    <input formControlName="title"
+           type="text"
+           class="form-control"
+           id="title"
+           placeholder="Enter title">
+    <lq-error-label [control]="formGroup.get('title')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="subtitle">Subtitle <span class="text-danger">*</span></label>
+    <input formControlName="subtitle"
+           type="text"
+           class="form-control"
+           id="subtitle"
+           placeholder="Enter subtitle">
+    <lq-error-label [control]="formGroup.get('subtitle')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category <span class="text-danger">*</span></label>
+    <select formControlName="category" class="form-control" id="category">
+      <option>Fiction</option>
+      <option>Biography</option>
+      <option>Science Fiction</option>
+      <option>Drama</option>
+      <option>Horror</option>
+    </select>
+    <lq-error-label [control]="formGroup.get('category')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="language">Language <span class="text-danger">*</span></label>
+    <select formControlName="language" class="form-control" id="language">
+      <option>English</option>
+      <option>Bulgarian</option>
+      <option>Russian</option>
+      <option>German</option>
+      <option>French</option>
+      <option>Arabic</option>
+      <option>Mandarin</option>
+    </select>
+    <lq-error-label [control]="formGroup.get('language')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="pages">Pages <span class="text-danger">*</span></label>
+    <input formControlName="pages"
+           type="number"
+           class="form-control"
+           id="pages"
+           placeholder="Enter pages">
+    <lq-error-label [control]="formGroup.get('pages')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="poster">Cover URL</label>
+    <input formControlName="coverImgURL"
+           type="text"
+           class="form-control"
+           id="poster"
+           placeholder="Enter cover URL">
+    <lq-error-label [control]="formGroup.get('coverImgURL')"></lq-error-label>
+  </div>
+
+  <div class="form-group">
+    <label for="publish-at">Published at <span class="text-danger">*</span></label>
+    <input formControlName="publishAt"
+           type="text"
+           bsDatepicker
+           [bsConfig]="{ dateInputFormat: 'MMM D, YYYY', isAnimated: true }"
+           class="form-control"
+           id="publish-at"
+           placeholder="Enter publish date">
+    <lq-error-label [control]="formGroup.get('publishAt')"></lq-error-label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

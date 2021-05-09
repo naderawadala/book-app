@@ -1,0 +1,50 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "created": 1615029752841,
+      "lastUpdated": "2021-04-24T10:35:00.315Z",
+      "title": "The Complete 2021 Web Development Bootcamp",
+      "subtitle": "Become a full-stack web developer with just one course. HTML, CSS, Javascript, Node, React, MongoDB and more!",
+      "category": "Web Development",
+      "language": "English",
+      "pages": 129.99,
+      "coverImgURL": "https://img-b.udemycdn.com/course/240x135/1565838_e54e_12.jpg?secure=XIqXC70_M6WFEJEqmnyssQ%3D%3D%2C1614509274",
+      "publishAt": "2021-04-24T10:34:59.435Z"
+    },
+    {
+      "title": "aaa",
+      "subtitle": "aaa",
+      "category": "Science Fiction",
+      "language": "English",
+      "pages": 24,
+      "coverImgURL": "ererea",
+      "publishAt": "2021-04-06T21:00:00.000Z",
+      "created": "2021-05-09T11:52:08.423Z",
+      "lastUpdated": "2021-05-09T11:52:14.783Z",
+      "id": 2
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "adgadg",
+      "surname": "gdag",
+      "nationality": "agdagadg",
+      "coverImgURL": null,
+      "bornAt": "2021-05-09T12:24:35.374Z",
+      "created": "2021-05-09T12:24:39.890Z",
+      "lastUpdated": "2021-05-09T12:24:39.890Z"
+    },
+    {
+      "name": "adg",
+      "surname": "dga",
+      "nationality": "adgadg",
+      "coverImgURL": null,
+      "bornAt": "2021-05-12T12:29:32.000Z",
+      "created": "2021-05-09T12:29:37.863Z",
+      "lastUpdated": "2021-05-09T12:29:37.863Z",
+      "id": 2
+    }
+  ]
+}
